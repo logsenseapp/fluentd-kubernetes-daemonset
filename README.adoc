@@ -1,0 +1,25 @@
+# LogSense agent for Kubernetes logs collection
+
+The following Kubernetes logs collector can be used to push your Kubernetes logs to LogSense.
+
+## How to run it
+Setting this up is as easy as two `kubectl` commands:
+
+```
+kubectl create secret -n kube-system generic logsense-token --from-literal=logsense-token=YOUR-LOGSENSE-TOKEN-HERE
+
+kubectl apply -f https://raw.githubusercontent.com/logsenseapp/fluentd-kubernetes-daemonset/master/logsense-daemonset.yaml
+```
+
+### RBAC rules
+If your cluster uses RBAC Authorization then you need to use some additional configuration. In such case please use the following spec file:
+
+```
+kubectl apply -f https://raw.githubusercontent.com/logsenseapp/fluentd-kubernetes-daemonset/master/logsense-daemonset-rbac.yaml
+```
+
+## How does it work
+The deamonset creates a logging agent pod on every node of the Kubernetes cluster and takes care of the logs collection and distribution.
+
+It uses the https://github.com/fluent/fluentd-kubernetes-daemonset[Fluentd Kubernetes DeamonSet] underneath.
+
