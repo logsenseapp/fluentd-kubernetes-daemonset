@@ -26,7 +26,7 @@ spec:
         effect: NoSchedule
       containers:
       - name: fluentd-logsense
-        image: logsenseapp/fluentd-kubernetes-daemonset:v1.3
+        image: logsenseapp/fluentd-kubernetes-daemonset:v1.4
         env:
         - name: LOGSENSE_TOKEN
           valueFrom:

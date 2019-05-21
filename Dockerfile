@@ -1,4 +1,4 @@
-FROM fluent/fluentd-kubernetes-daemonset:v1.3-debian-forward-1
+FROM fluent/fluentd-kubernetes-daemonset:v1.4-debian-forward-1
 
 ENV FLUENTD_CONF=logsense.conf
 
